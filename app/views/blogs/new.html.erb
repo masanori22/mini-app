@@ -1,0 +1,9 @@
+<div class="contens row">
+  <%= form_tag('/blogs', method: :post) do %>
+  <h3>ブログを書く</h3>
+    <input placeholder="Name" type="text", name="name">
+    <input placeholder="Imageurl" type="text", name="image">
+    <input placeholder="Content" type="text", name="text">
+    <input type="submit", value="POCHI"> 
+  <% end %>
+</div>
