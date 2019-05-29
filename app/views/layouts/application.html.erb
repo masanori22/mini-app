@@ -25,14 +25,19 @@
   <body>
   <nav>
     <div class="nav-wrapper">
-      <a href="/blogs" class="brand-logo">BLogo</a>
+      <a href="/" class="brand-logo">BLogo</a>
       <ul id="nav-mobile" class="right hide-on-med-and-down">
-        <li><a href="sass.html">Signin</a></li>
-        <li><a href="badges.html">Signout</a></li>
-        <li><a href="blogs/new">New</a></li>
+        <% if user_signed_in? %>
+          <li><a href="/users/sign_out">Signout</a></li>
+          <li><a href="blogs/new">New</a></li>
+        <% else %>
+          <li><a href="/users/sign_in">Signin</a></li>
+          <li><a href="/users/sign_up">Signup</a></li>
+        <% end %>
       </ul>
     </div>
   </nav>    
   <%= yield %>
   </body>
 </html>
+
