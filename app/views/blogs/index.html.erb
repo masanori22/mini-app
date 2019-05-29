@@ -20,7 +20,7 @@
   <div class="contents row">
     <%= @blogs.each do |blog| %>
       <div class="content_post" style="background-image: url(<%= blog.image %>);">
-        <p><%= simple_format(blog.text) %></p>
+        <p><%= blog.text %></p>
         <span class="name"><%= blog.name %></span>
         <% if user_signed_in? %>
           <li class="btn"><%= link_to 'delete', "/blogs/#{blog.id}", method: :delete %></li>
@@ -29,9 +29,7 @@
       </div>
     <% end %>
   </div>
-
   <%= paginate(@blogs) %>
-
   <script type="text/javascript" src="./app.js"></script>
 </body>
 </html>
