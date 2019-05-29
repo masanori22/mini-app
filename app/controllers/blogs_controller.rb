@@ -13,6 +13,19 @@ class BlogsController < ApplicationController
     Blog.create(blog_params)
   end
 
+  def destroy
+    blog = Blog.find(params[:id])
+    blog.destroy
+  end
+
+  def edit
+    @blog = Blog.find(params[:id])
+  end
+
+  def update
+    Blog.update(blog_params)
+  end
+
   private
   def blog_params
     params.permit(:name, :image, :text)

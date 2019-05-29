@@ -15,24 +15,23 @@
   crossorigin="anonymous"></script>
 </head>
 <body>
+  <h1>Hello World</h1>
 
+  <div class="contents row">
+    <%= @blogs.each do |blog| %>
+      <div class="content_post" style="background-image: url(<%= blog.image %>);">
+        <p><%= simple_format(blog.text) %></p>
+        <span class="name"><%= blog.name %></span>
+        <% if user_signed_in? %>
+          <li class="btn"><%= link_to 'delete', "/blogs/#{blog.id}", method: :delete %></li>
+          <li class="btn"><%= link_to 'edit', "/blogs/#{blog.id}", method: :get %></li>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
 
+  <%= paginate(@blogs) %>
 
-<h1>Hello World</h1>
-<p>ddddddddd</p>
-
-<div class="contents row">
-  <%= @blogs.each do |blog| %>
-    <div class="content_post" style="background-image: url(<%= blog.image %>);">
-      <p><%= simple_format(blog.text) %></p>
-      <span class="name"><%= blog.name %></span>
-    </div>
-  <% end %>
-</div>
-
-<%= paginate(@blogs) %>
-
-
-<script type="text/javascript" src="./app.js"></script>
+  <script type="text/javascript" src="./app.js"></script>
 </body>
 </html>
